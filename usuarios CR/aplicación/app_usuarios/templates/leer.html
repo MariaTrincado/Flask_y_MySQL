@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios</title>
+    <link rel="stylesheet" href="{{url_for('static', filename = '/css/index.css')}}">
+</head>
+<body>
+<div class="container">
+    <h1>Todos los usuarios</h1>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Correo</th>
+            <th>Tiempo de Actualización</th>
+        </tr>
+        {% for item in usuarios %}
+        <tr>
+            <td>{{ item.nombre }}</td>
+            <td>{{ item.apellido }}</td>
+            <td>{{ item.correo }}</td>
+            <td>{{ item.tiempo_acualizacion }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <form method="GET" action="/form/usuario">
+        <button type="submit">
+            Agregar nuevo usuario
+        </button>
+    </form>
+</div>
+</body>
+</html>
