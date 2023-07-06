@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios</title>
+    <link rel="stylesheet" href="{{url_for('static', filename = '/css/index.css')}}">
+</head>
+<body>
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Correo</th>
+                    <th>Tiempo de Actualización</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="usuario">
+                    <td>{{ usuario_actual.nombre }}</td>
+                    <td>{{ usuario_actual.apellido }}</td>
+                    <td>{{ usuario_actual.correo }}</td>
+                    <td>{{ usuario_actual.tiempo_acualizacion }}</td>
+                    <td>
+                        <form action="/formulario/usuario/{{ usuario_actual.id }}" method="GET">
+                            <button type="submit" class="edit">Editar</button>
+                        </form>
+                        <form action="/eliminar/usuario/{{ usuario_actual.id }}" method="POST" style="display: inline-block;">
+                            <button type="submit" class="elim">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <form method="GET" action="/usuario">
+            <button type="submit">Inicio</button>
+        </form>
+    </div>
+</body>
+</html>

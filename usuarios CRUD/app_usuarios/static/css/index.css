@@ -1,0 +1,83 @@
+body {
+    background-color: lightskyblue;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    margin: 50px auto;
+}
+
+.container {
+    background-color:aliceblue;
+    width: 550px;
+    border: 1px solid aliceblue;
+    padding: 20px;
+    margin: auto;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: navy;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: large;
+}
+
+input{
+    width: 450px;
+}
+
+button {
+    background-color:navy;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 13px;
+    border-radius: 4px;
+    margin-top: 10px;
+    height: 29px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+}
+
+td {
+    padding-right: 20px;
+}
+
+.elim{
+    background-color: rgb(171, 60, 58);
+}
+
+.ver{
+    background-color: rgb(58, 171, 132);
+}
+
+.edit{
+    background-color: rgb(178, 93, 232);
+}
+
+.btn{
+    width: 300px;
+    margin: auto;
+    margin-left: 130px;
+}
+
