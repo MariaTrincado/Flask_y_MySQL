@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Ninja</title>
+</head>
+<body>
+    <h1>New Ninja</h1>
+    <form action="/nuevo/ninja" method="POST"> <!-- Agregué el atributo 'method' con el valor 'POST' al formulario -->
+        <div>
+            <label for="id_dojo">
+                Dojo:
+            </label>
+            <select name="id_dojo" id="id_dojo">
+                {% for dojo in lista_dojos %}
+                <option value="{{ dojo.id }}">{{ dojo.nombre }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <label for="nombre">
+                Name:
+            </label>
+            <input type="text" name="nombre" id="nombre">
+        </div>
+        <div>
+            <label for="apellido">
+                Lastname:
+            </label>
+            <input type="text" name="apellido" id="apellido">
+        </div>
+        <div>
+            <label for="edad">
+                Age:
+            </label>
+            <input type="number" name="edad" id="edad">
+        </div>
+        <button type="submit">
+            Create
+        </button>
+    </form>
+    <div>
+        <a href="/dojos">Home</a>
+    </div>
+</body>
+</html>
