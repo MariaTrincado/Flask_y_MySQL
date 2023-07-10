@@ -1,0 +1,19 @@
+h1{
+    text-align: center;
+}
+
+form{
+    background-color: rgb(40, 44, 58);
+    padding: 30px;
+    margin: 30px;
+    color: aliceblue;
+    border-radius: 20px;
+}
+
+.btn{
+    margin-top: 15px;
+}
+
+#id{
+    height: 300px;
+}
