@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis recetas</title>
+    <link rel="stylesheet" href="{{url_for('static', filename = '/css/style2.css')}}">
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                <h1>
+                    Bienvenido {{session['nombre'] }} {{session['apellido'] }} a tu app de Recetas
+                </h1>
+                <h2>
+                    Tus recetas
+                </h2>
+            </div>
+            <div class="col-4 text-right">
+                <a href="/formulario/receta" class="btn">Agregar receta</a>
+                <form action="/desconectar" method="POST">
+                    <button type="submit">Cerrar Sesión</button>
+                </form>
+
+                
+            </div>
+        </div>
+        <div class="row">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Receta</th>
+                        <th>¿Listo en 30 min?</th>
+                        <th>Autor</th>
+                        <th>Más</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for receta in lista_recetas: %}
+                    <tr>
+                        <td> {{receta.nombre}}</td>
+                        <td>
+                            {%if receta.cuanto == 1:%}
+                            Sí
+                            {%else:%}
+                            No
+                            {%endif%}
+                        </td>
+                        <td>{{receta.usuario.nombre}} {{receta.usuario.apellido}} </td>
+                        <td>
+                            <a href="/receta/{{receta.id}}" class="btn btn-primary"> Ver receta</a>
+                            {%if receta.id_usuario == session ['id_usuario']: %}
+                            <a href="/form/editar/receta/{{receta.id}}" class="btn btn-primary"> Editar</a>
+                            <form action="/eliminar/receta/{{receta.id}}" method="POST" style="display:inline;">
+                                <button type="submit" class="btn btn-primary"> Eliminar</button>
+                            </form>
+                            {%endif%}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

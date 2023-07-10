@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                <h1>
+                    Agrega una receta a la comunidad
+                </h1>
+            </div>
+            <div class="col-4 text-right">
+                <form action="/recetas" method="GET">
+                    <button type="submit">Inicio</button>
+                </form>
+                <form action="/desconectar" method="POST">
+                    <button type="submit">Cerrar sesión</button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <form action="/crear/receta" method="POST">
+                    <div class="form-group">
+                        <label for="nombre">Nombre de la preparación:</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre">
+                        {%for mensaje in get_flashed_messages( category_filter = ['error_nombre'] ): %}
+                        <div class="alert alert-danger">
+                            {{mensaje}}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="form-group">
+                        <label for="descripcion">Descripción:</label>
+                        <textarea class="form-control" id="descripcion" name="descripcion"></textarea>
+                        {%for mensaje in get_flashed_messages( category_filter = ['error_descripcion'] ): %}
+                        <div class="alert alert-danger">
+                            {{mensaje}}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="form-group">
+                        <label for="instrucciones">Instrucciones:</label>
+                        <textarea class="form-control" id="instrucciones" name="instrucciones"></textarea>
+                        {%for mensaje in get_flashed_messages( category_filter = ['error_instrucciones'] ): %}
+                        <div class="alert alert-danger">
+                            {{mensaje}}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="form-group">
+                        <label for="cuando">Elaborado el:</label>
+                        <input type="date" class="form-control" id="cuando" name="cuando">
+                        {%for mensaje in get_flashed_messages( category_filter = ['error_cuando'] ): %}
+                        <div class="alert alert-danger">
+                            {{mensaje}}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="form-group">
+                        <p>¿Listo en 30min?</p>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="tiempo_si" value="1" name="cuanto">
+                            <label class="form-check-label" for="si">Sí</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="tiempo_no" value="0" name="cuanto">
+                            <label class="form-check-label" for="no">No</label>
+                        </div>
+                        {%for mensaje in get_flashed_messages( category_filter = ['error_menos_cuanto'] ): %}
+                        <div class="alert alert-danger">
+                            {{mensaje}}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <button type="submit" class="btn btn-primary">Crear receta</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>
